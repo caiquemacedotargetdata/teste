@@ -2,6 +2,7 @@
 
 USERNAME="caiquemacedotargetdata"
 PASSWORD="829d0a4e67e"
+PROJET="caiquemacedotargetdata/teste.git"
 
 #get highest tag number
 VERSION=`git describe --abbrev=0 --tags`
@@ -28,11 +29,31 @@ case $1 in
 		VNUM1=${VERSION_BITS[0]}
 		VNUM2=${VERSION_BITS[1]}
 		VNUM3=${VERSION_BITS[2]}
-		VNUM3=$((VNUM3+1))
+		
+		if [ VNUM3 eq 9 ]; then
+			VNUM3=0
+		
+			if [ VNUM2 eq 9 ]; then		
+				VNUM1=$((VNUM1+1))
+				VNUM2=0
+			else
+				VNUM2=$((VNUM2+1))
+		else
+			VNUM3=$((VNUM3+1))
+			
+		if [ VNUM2 eq 9 ]; then
+			VNUM1=$((VNUM1+1))
+			VNUM2=0
+			VNUM3=0
+		else
+			VNUM2=$((VNUM2+1))
+		
 		;;
 	
 	*)
 		echo "Sorry, I don't understand"
+		
+		exit;
 	;;
 esac
 
@@ -49,7 +70,7 @@ NEEDS_TAG=`git describe --contains $GIT_COMMIT 2>/dev/null`
 if [ -z "$NEEDS_TAG" ]; then
     git tag $NEW_TAG
     echo "Tagged with $NEW_TAG"
-    git push https://${USERNAME}:${PASSWORD}@github.com/caiquemacedotargetdata/teste.git --tags
+    git push https://${USERNAME}:${PASSWORD}@github.com/${PROJET} --tags
 else
     echo "Already a tag on this commit"
 fi
