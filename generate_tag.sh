@@ -13,7 +13,7 @@ VERSION_BITS=(${VERSION//./ })
 
 #get number parts and increase last one by 1
 
-case $1 in
+case $5 in
 
 	"-v")
 		echo "Generated a version"
