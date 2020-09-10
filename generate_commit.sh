@@ -6,8 +6,8 @@ PASSWORD="829d0a4e67e"
 URI_PROJECT="caiquemacedotargetdata/teste.git"
 
 MESSAGE=$2
-VERSION_OR_RELEASE=$2
-echo MESSAGE
+VERSION_OR_RELEASE=$3
+echo $MESSAGE
 if [ "$1" ==  "-m" ] && [ ! -z "$MESSAGE" ] && [ ! -z "$VERSION_OR_RELEASE" ]; then
 	git add .
 	git commit -m "$MESSAGE"
