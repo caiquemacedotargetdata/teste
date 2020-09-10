@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #variables globals
-USERNAME="caiquemacedotargetdata"
-PASSWORD="829d0a4e67e"
+USERNAME=$2
+PASSWORD=$4
 URI_PROJECT="caiquemacedotargetdata/teste.git"
 
 #get highest tag number
@@ -67,7 +67,6 @@ if [ -z "$NEEDS_TAG" ]; then
     git tag $NEW_TAG
     echo "Tagged with $NEW_TAG"
     git push https://${USERNAME}:${PASSWORD}@github.com/${URI_PROJECT} --tags
-	git push https://${USERNAME}:${PASSWORD}@github.com/${URI_PROJECT} --all
 else
     echo "Already a tag on this commit -> ${GIT_COMMIT}"
 fi
