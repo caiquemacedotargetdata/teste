@@ -1,8 +1,6 @@
 #!/bin/bash
 
 #variables globals
-USERNAME="caiquemacedotargetdata"
-PASSWORD="829d0a4e67e"
 URI_PROJECT="caiquemacedotargetdata/teste.git"
 
 USERNAME=$2
