@@ -21,7 +21,7 @@ case $1 in
 		VNUM1=${VERSION_BITS[0]/v/}
 		
 		VNUM1=$((VNUM1+1))
-		VNUM2=0
+		VNUM2=0	
 		VNUM3=0
 	;;
 
@@ -67,6 +67,7 @@ if [ -z "$NEEDS_TAG" ]; then
     git tag $NEW_TAG
     echo "Tagged with $NEW_TAG"
     git push https://${USERNAME}:${PASSWORD}@github.com/${URI_PROJECT} --tags
+	git push https://${USERNAME}:${PASSWORD}@github.com/${URI_PROJECT} --all
 else
     echo "Already a tag on this commit -> ${GIT_COMMIT}"
 fi
