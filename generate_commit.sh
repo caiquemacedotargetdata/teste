@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#variables globals
+#variable global
 URI_PROJECT="caiquemacedotargetdata/teste.git"
 
 USERNAME=$2
