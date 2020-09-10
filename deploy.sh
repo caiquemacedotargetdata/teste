@@ -34,7 +34,7 @@ case $1 in
 		if [ ${VNUM3/v/} -eq 11 ]; then
 			VNUM3=0
 		
-			if [ VNUM2 -eq 11 ]; then
+			if [ VNUM2 -eq "11" ]; then
 				VNUM1=$((VNUM1+1))
 				VNUM2=0
 				VNUM3=0
