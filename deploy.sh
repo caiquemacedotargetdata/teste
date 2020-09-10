@@ -36,19 +36,12 @@ case $1 in
 			if [ VNUM2 eq "9" ]; then
 				VNUM1=$((VNUM1+1))
 				VNUM2=0
+				VNUM3=0
 			else
 				VNUM2=$((VNUM2+1))
 			fi
 		else
 			VNUM3=$((VNUM3+1))
-		fi
-		
-		if [ VNUM2 eq "9" ]; then
-			VNUM1=$((VNUM1+1))
-			VNUM2=0
-			VNUM3=0
-		else
-			VNUM2=$((VNUM2+1))
 		fi
 	;;
 	
