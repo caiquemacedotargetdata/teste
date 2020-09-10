@@ -30,10 +30,10 @@ case $1 in
 		VNUM2=${VERSION_BITS[1]}
 		VNUM3=${VERSION_BITS[2]}
 		
-		if [ VNUM3 eq 9 ]; then
+		if [ VNUM3 eq "9" ]; then
 			VNUM3=0
 		
-			if [ VNUM2 eq 9 ]; then
+			if [ VNUM2 eq "9" ]; then
 				VNUM1=$((VNUM1+1))
 				VNUM2=0
 			else
@@ -43,7 +43,7 @@ case $1 in
 			VNUM3=$((VNUM3+1))
 		fi
 		
-		if [ VNUM2 eq 9 ]; then
+		if [ VNUM2 eq "9" ]; then
 			VNUM1=$((VNUM1+1))
 			VNUM2=0
 			VNUM3=0
