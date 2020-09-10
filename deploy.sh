@@ -68,6 +68,6 @@ if [ -z "$NEEDS_TAG" ]; then
     echo "Tagged with $NEW_TAG"
     git push https://${USERNAME}:${PASSWORD}@github.com/${URI_PROJECT} --tags
 else
-    echo "Already a tag on this commit"
+    echo "Already a tag on this commit -> ${GIT_COMMIT}"
 fi
 
