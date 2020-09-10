@@ -18,10 +18,11 @@ case $1 in
 	"-v")
 		echo "Generated a version"
   
-		VNUM1=${VERSION_BITS[0]}
+		VNUM1=${VERSION_BITS[0]/v/}
+		
+		VNUM1=$((VNUM1+1))
 		VNUM2=0
 		VNUM3=0
-		VNUM1=$((VNUM1+1))
 	;;
 
 	"-r")
