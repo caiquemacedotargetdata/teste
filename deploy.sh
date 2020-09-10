@@ -27,17 +27,16 @@ case $1 in
 	"-r")
 		echo "Generated a release"
 	  
-		VNUM1=${VERSION_BITS[0]}
+		VNUM1=${VERSION_BITS[0]/v/}
 		VNUM2=${VERSION_BITS[1]}
 		VNUM3=${VERSION_BITS[2]}
 		
-		if [ ${VNUM3/v/} -eq "9" ]; then
+		if [ ${VNUM3} -eq "9" ]; then
 			VNUM3=0
 		
-			if [ VNUM2 -eq "9" ]; then
+			if [ ${VNUM2} -eq "9" ]; then
 				VNUM1=$((VNUM1+1))
 				VNUM2=0
-				VNUM3=0
 			else
 				VNUM2=$((VNUM2+1))
 			fi
@@ -54,7 +53,7 @@ case $1 in
 esac
 
 #create new tag
-NEW_TAG="$VNUM1.$VNUM2.$VNUM3"
+NEW_TAG="v$VNUM1.$VNUM2.$VNUM3"
 
 echo "Updating $VERSION to $NEW_TAG"
 
@@ -65,7 +64,7 @@ NEEDS_TAG=`git describe --contains $GIT_COMMIT 2>/dev/null`
 #only tag if no tag already
 if [ -z "$NEEDS_TAG" ]; then
     git tag $NEW_TAG
-    echo "Tagged with $NEW_TAG"
+    echo "Tagged with v$NEW_TAG"
     git push https://${USERNAME}:${PASSWORD}@github.com/${URI_PROJECT} --tags
 else
     echo "Already a tag on this commit -> ${GIT_COMMIT}"
